@@ -41,13 +41,14 @@ $(".activityContent ul.list-inline a").each(function() {
 // area
 $("ul.area-list > li.select_form_b a, ul.area-list > li.select_form_a a").each(function() {
   console.log("find area id " + $(this).attr("id"));
+  document.getElementById($(this).attr("id")).click();
 });
 $("ul.area-list > li:not(:has(a))").hide();
 
 // ticket
 var data = document.getElementsByTagName('html')[0].innerHTML;
 $("#TicketForm_agree").prop('checked', true).prop('name', data.substr(data.indexOf("TicketForm[agree][", 10000), 63));
-$("#TicketForm select option:last-child").prop("selected", true)
+document.getElementsByClassName('mobile-select')[0].value=1;
 $("#TicketForm_checked").prop('name', data.substr(data.indexOf("#TicketForm_checked", 10000)+36, 69));
 $("#TicketForm_verifyCode").focus();
 //console.log( data.substr(data.indexOf("TicketForm[agree][", 10000), 63) );
